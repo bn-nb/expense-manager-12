@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> EM - FAMILY </title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {packages: ['corechart', 'bar']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var all_pie = google.visualization.arrayToDataTable([
+          ['Category', 'Expense'],
+          ['Child_Care', {{alltime.Child_Care}}],
+          ['Toys', {{alltime.Toys}}],
+          ['Others', {{alltime.Others}}]
+        ]);
+
+        var all_bar = google.visualization.arrayToDataTable([
+        ['Category', 'Expense', {role: 'style'}],
+        ['Child_Care', {{alltime.Child_Care}},'color : #FF3399'],
+        ['Toys', {{alltime.Toys}},'color : #FF8000'],
+        ['Others', {{alltime.Others}},'color : #3399FF']        
+      ]);
+
+        var month_pie = google.visualization.arrayToDataTable([
+          ['Category', 'Expense'],
+          ['Child_Care', {{lastmonth.Child_Care}}],
+          ['Toys', {{lastmonth.Toys}}],
+          ['Others', {{lastmonth.Others}}]
+        ]);
+
+        var month_bar = google.visualization.arrayToDataTable([
+        ['Data', 'value', {role: 'style'}],
+        ['Child_Care', {{lastmonth.Child_Care}},'color : #FF3399'],
+        ['Toys', {{lastmonth.Toys}},'color : #FF8000'],
+        ['Others', {{lastmonth.Others}},'color : #3399FF']        
+      ]);
+
+        var year_pie = google.visualization.arrayToDataTable([
+          ['Category', 'Expense'],
+          ['Child_Care', {{lastyear.Child_Care}}],
+          ['Toys', {{lastyear.Toys}}],
+          ['Others', {{lastyear.Others}}]
+        ]);
+
+        var year_bar = google.visualization.arrayToDataTable([
+        ['Category', 'Expense', {role: 'style'}],
+        ['Child_Care', {{lastyear.Child_Care}},'color : #FF3399'],
+        ['Toys', {{lastyear.Toys}},'color : #FF8000'],
+        ['Others', {{lastyear.Others}},'color : #3399FF']        
+      ]);
+
+
+        var week_pie = google.visualization.arrayToDataTable([
+          ['Category', 'Expense'],
+          ['Child_Care', {{lastweek.Child_Care}}],
+          ['Toys', {{lastweek.Toys}}],
+          ['Others', {{lastweek.Others}}]
+        ]);
+
+        var week_bar = google.visualization.arrayToDataTable([
+        ['Category', 'Expense', {role: 'style'}],
+        ['Child_Care', {{lastweek.Child_Care}},'color : #FF3399'],
+        ['Toys', {{lastweek.Toys}},'color : #FF8000'],
+        ['Others', {{lastweek.Others}},'color : #3399FF']        
+      ]);
+
+
+        var all_pie_options = {
+          title: 'ALL TIME EXPENSES - FAMILY',
+          fontName: 'Verdana',
+          backgroundColor:{
+          strokeWidth: 10,
+          fill:'#F5DEB3',
+          stroke:'brown'},
+          fontSize: 20,
+          is3D:true,          
+          legend: {position: 'RIGHT', textStyle: {fontSize:15, fontName:'Consolas', bold:true}, alignment: 'start' },
+          pieSliceTextStyle:{color: 'white', fontName: 'consolas', fontSize: 12},
+          colors:['FF3399','FF8000','3399FF','CCCC00','009999','000066','FF3333','006600']
+        };
+
+        var month_pie_options = {
+          title: 'LAST MONTH EXPENSES - FAMILY',
+          fontName: 'Verdana',
+          backgroundColor:{
+          strokeWidth: 10,
+          fill:'#F5DEB3',
+          stroke:'brown'},
+          fontSize: 20,
+          is3D:true,          
+          legend: {position: 'RIGHT', textStyle: {fontSize:15, fontName:'Consolas', bold:true}, alignment: 'start' },
+          pieSliceTextStyle:{color: 'white', fontName: 'consolas', fontSize: 12},
+          colors:['FF3399','FF8000','3399FF','CCCC00','009999','000066','FF3333','006600']
+        };
+
+        var all_bar_options = {
+        title: 'ALL TIME EXPENSES - FAMILY',
+        titleTextStyle:{
+        fontName:'Verdana',
+        fontSize:20,},
+        fontName:'consolas',
+        fontSize:15,
+        vAxis:{minValue:0},        
+        legend:{ position: "none" },
+        backgroundColor:{
+          strokeWidth: 10,
+          fill:'#FFF8DC',
+          stroke:'#DAA520'},
+        };
+
+        var month_bar_options = {
+        title: 'LAST MONTH EXPENSES - FAMILY',
+        titleTextStyle:{
+        fontName:'Verdana',
+        fontSize:20,},
+        fontName:'consolas',
+        fontSize:15,
+        vAxis:{minValue:0},        
+        legend:{ position: "none" },
+        backgroundColor:{
+          strokeWidth: 10,
+          fill:'#FFF8DC',
+          stroke:'#DAA520'},
+        };
+
+        var year_pie_options = {
+          title: 'LAST YEAR EXPENSES - FAMILY',
+          fontName: 'Verdana',
+          backgroundColor:{
+          strokeWidth: 10,
+          fill:'#F5DEB3',
+          stroke:'brown'},
+          fontSize: 20,
+          is3D:true,          
+          legend: {position: 'RIGHT', textStyle: {fontSize:15, fontName:'Consolas', bold:true}, alignment: 'start' },
+          pieSliceTextStyle:{color: 'white', fontName: 'consolas', fontSize: 12},
+          colors:['FF3399','FF8000','3399FF','CCCC00','009999','000066','FF3333','006600']
+        };
+
+        var year_bar_options = {
+        title: 'LAST YEAR EXPENSES - FAMILY',
+        titleTextStyle:{
+        fontName:'Verdana',
+        fontSize:20,},
+        fontName:'consolas',
+        fontSize:15,
+        vAxis:{minValue:0},        
+        legend:{ position: "none" },
+        backgroundColor:{
+          strokeWidth: 10,
+          fill:'#FFF8DC',
+          stroke:'#DAA520'},
+        };
+
+        var week_pie_options = {
+          title: 'LAST WEEK EXPENSES - FAMILY',
+          fontName: 'Verdana',
+          backgroundColor:{
+          strokeWidth: 10,
+          fill:'#F5DEB3',
+          stroke:'brown'},
+          fontSize: 20,
+          is3D:true,          
+          legend: {position: 'RIGHT', textStyle: {fontSize:15, fontName:'Consolas', bold:true}, alignment: 'start' },
+          pieSliceTextStyle:{color: 'white', fontName: 'consolas', fontSize: 12},
+          colors:['FF3399','FF8000','3399FF','CCCC00','009999','000066','FF3333','006600']
+        };
+
+        var week_bar_options = {
+        title: 'LAST WEEK EXPENSES - FAMILY',
+        titleTextStyle:{
+        fontName:'Verdana',
+        fontSize:20,},
+        fontName:'consolas',
+        fontSize:15,
+        vAxis:{minValue:0},        
+        legend:{ position: "none" },
+        backgroundColor:{
+          strokeWidth: 10,
+          fill:'#FFF8DC',
+          stroke:'#DAA520'},
+        };
+
+        var chart1 = new google.visualization.PieChart(document.getElementById('chart1'));
+        chart1.draw(all_pie, all_pie_options);
+
+        var chart2 = new google.visualization.ColumnChart(document.getElementById('chart2'));
+        chart2.draw(all_bar, all_bar_options);
+
+        var chart3 = new google.visualization.PieChart(document.getElementById('chart3'));
+        chart3.draw(month_pie, month_pie_options);
+
+        var chart4 = new google.visualization.ColumnChart(document.getElementById('chart4'));
+        chart4.draw(month_bar, month_bar_options);
+
+        var chart5 = new google.visualization.PieChart(document.getElementById('chart5'));
+        chart5.draw(year_pie, year_pie_options);
+
+        var chart6 = new google.visualization.ColumnChart(document.getElementById('chart6'));
+        chart6.draw(year_bar, year_bar_options);
+
+        var chart7 = new google.visualization.PieChart(document.getElementById('chart7'));
+        chart7.draw(week_pie, week_pie_options);
+
+        var chart8 = new google.visualization.ColumnChart(document.getElementById('chart8'));
+        chart8.draw(week_bar, week_bar_options);
+      
+      }
+
+      </script>
+    <style>
+    .container {
+        width: 96%;
+        border: 5px solid rgb(60,60,115);
+        border-radius: .5em;
+        padding: 10px;
+        display: flex;
+        margin: 1em;}
+    </style>
+</head>
+<body style="font-size: 35px;  font-family: consolas;  background-color: azure;">
+  <h1 style='text-indent: 15%;'> EXPENSES - FAMILY </h1>
+  <h4 style="color: firebrick; text-indent: 15%; font-family: consolas">Position cursor over graphics !</h4>
+    <div class='container'>
+        <div id="chart1" style="width: 50%; height: 400px;"></div>
+        <div id="chart2" style="width: 50%; height: 400px;"></div>
+    </div>
+    <br> 
+    <div class='container'>
+        <div id="chart3" style="width: 50%; height: 400px;"></div>
+        <div id="chart4" style="width: 50%; height: 400px;"></div>
+    </div> 
+    <br>
+    <div class='container'>
+        <div id="chart5" style="width: 50%; height: 400px;"></div>
+        <div id="chart6" style="width: 50%; height: 400px;"></div>
+    </div> 
+    <br>
+    <div class='container'>
+        <div id="chart7" style="width: 50%; height: 400px;"></div>
+        <div id="chart8" style="width: 50%; height: 400px;"></div>
+    </div> 
+    <br>  
+    <div class='container' style="background-color: #FF3399">
+      <button onclick="document.location ='http://localhost:8000/'" title='Home Page' style="font-size: 35px;  font-family: consolas;  width: 32%; position: relative; left: 34%"> Back to Home Page </button>
+    </div>
+    <div class='container' style="background-color: #FF3399">
+      <button onclick="document.location ='http://localhost:8000/logout'" title='LOGOUT' style="font-size: 35px;  font-family: consolas;  width: 32%; position: relative; left: 34%"> LOGOUT </button>
+    </div> 
+  </body>
+</html>

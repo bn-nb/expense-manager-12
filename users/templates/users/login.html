@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+    <style type="text/css">
+        .container {
+        width: 94%;
+        border: 5px solid firebrick;
+        border-radius: .5em;
+        padding: 10px;
+        display: flex;
+        margin: 1em;}
+    </style>
+</head>
+<body style="font-size:30px;  font-family: consolas;  background-color: #F5DEB3;">
+    <h1 class='border-bottom mb-4' style="color:navy;"> Login </h1>
+    <div class='container'>
+        <small>
+         Need an Account? <a  href="http://localhost:8000/register">Sign Up Now !</a>
+     </small>
+    </div><br>
+    {% if form.errors %}
+    <div style='width: 94%; border: 5px solid white; border-radius: .5em; margin: 1em; background-color: lime;'>
+    {% for field in form %}
+        {% for error in field.errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    {% for error in form.non_field_errors %}
+        <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+        </div>
+    {% endfor %}
+    <div class="alert alert-danger">
+            <strong> New user? Register !</strong>
+        </div>
+{% endif %}</div>
+<form method='post'>
+    {% csrf_token %}
+    <div class = 'container'>
+        <li><label for="id_username" ><b>Username:</b></label>
+        <input type="text" name="username" maxlength="50" autocapitalize="none" autocomplete="username" autofocus required id="id_username" style="font-size:30px;  font-family: consolas;position: absolute; right:100px;">
+        </li>
+    </div> <br>
+        
+    <div class = 'container'>
+        <li><label for="id_password1"><b>Password:</b></label> 
+        <input type="password" name="password"  required id="id_password" style="font-size:30px;  font-family: consolas; position: absolute; right:100px;" > 
+        </li>
+    </div><br>
+    
+     <div  class = 'container'>
+        <button type='submit' style="font-size: 35px;  font-family: consolas;  width: 40%; position: relative;left:29%;">  Login </button>
+    </div>
+    </form>
+    <br>
+    
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register Users</title>
+    <style type="text/css">
+        .container {
+        width: 94%;
+        border: 5px solid firebrick;
+        border-radius: .5em;
+        padding: 10px;
+        display: flex;
+        margin: 1em;}
+    </style>
+</head>
+<body style="font-size:30px;  font-family: consolas;  background-color: #F5DEB3;">
+    <h1  style="color:navy;"> Register Today !!</h1>
+    <div class='container'><small>Already Have an Account? <a class="ml-2" href="http://localhost:8000/login">Proceed to Login</a>
+     </small></div><br>
+    
+<form method='post'>
+    {% csrf_token %}
+    {% if form.errors %}
+    <div style='width: 94%; border: 5px solid white; border-radius: .5em; margin: 1em; background-color: lime;'>
+    {% for field in form %}
+        {% for error in field.errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    {% for error in form.non_field_errors %}
+        <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+        </div>
+    {% endfor %}
+{% endif %}</div>
+    <div class = 'container'>
+        <li><label for="id_username" ><b>Username:</b></label>
+        <input type="text" name="username" maxlength="50" autocapitalize="none" autocomplete="username" autofocus required id="id_username" style="font-size:30px;  font-family: consolas;position: absolute; right:100px;">
+        <br><span class="helptext"><br>Required. 50 characters or fewer. Letters, digits and @/./+/-/_ only.</span></li>
+    </div> <br>
+    <div class = 'container'>
+    <li><label for="id_email">Email:</label> <input type="email" name="email" required id="id_email" style="font-size:30px;  font-family: consolas;position: absolute; right:100px;">
+        <span class="helptext"><br><br>Enter your email address.  </span></li>
+    </div><br>    
+    <div class = 'container'>
+        <li><label for="id_password1"><b>Password:</b></label> 
+        <input type="password" name="password1" autocomplete="new-password" required id="id_password1" style="font-size:30px;  font-family: consolas; position: absolute; right:100px;" > 
+        <span class="helptext"><ul><li>Your password can’t be too similar to your other personal information.</li>
+        <li>Your password must contain at least 8 characters.</li>
+        <li>Your password can’t be a commonly used password.</li>
+        <li>Your password can’t be entirely numeric.</li></ul></span></li>
+    </div><br>
+    <div class = 'container'>
+        <li><label for="id_password2"><b>Password confirmation:</b></label> 
+        <input type="password" name="password2" autocomplete="new-password" required id="id_password2" style="font-size:30px;  font-family: consolas;position: absolute; right:100px;"> 
+        <span class="helptext"><br><br>Enter the same password as before, for verification.</span></li>
+     </div>
+     <div  class = 'container'>
+        <button type='submit' style="font-size: 35px;  font-family: consolas;  width: 40%; position: relative;left:29%;">  Sign Up </button>
+    </div>
+    </form>
+    <br>
+    
+
+</body>
+</html>

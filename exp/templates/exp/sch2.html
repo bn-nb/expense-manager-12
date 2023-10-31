@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> View Schedule</title>
+    <style type="text/css">
+        .container {
+        width: 94%;
+        border: 5px solid white;
+        border-radius: .5em;
+        padding: 10px;
+        display: flex;
+        margin: 1em;
+        background-color: #FF3399}
+    </style>
+</head>
+<body style="font-size: 35px;  font-family: consolas;  background-color: #F5DEB3;"> 
+<h1 style='text-indent: 15%;'> VIEW SCHEDULES </h1> 
+    <div align=center>
+<table border="1" class="dataframe">  
+    <thead>
+    <tr style="text-align: right;background-color: cyan">
+      <th> Date  </th>
+      <th> Expense  </th>
+      <th> Sub_Type  </th>
+      <th> Amount  </th>
+    </tr> </thead>
+        {% for a in output %}
+                <tr>
+                <td> {{a.Date}} </td>            
+                <td> {{a.Expense}} </td>                
+                <td> {{a.Sub_Type}} </td>                
+                <td> {{a.Amount}} </td>                
+                </tr>
+        {% endfor %}  
+</table></div><br>
+<div class='container' style="background-color: #FF3399">
+      <button onclick="document.location ='http://localhost:8000'" title='HOME_PAGE' style="font-size: 35px;  font-family: consolas;  width: 32%; position: relative; left: 34%"> HOME </button>
+</div>
+<div class='container' style="background-color: #FF3399">
+      <button onclick="document.location ='http://localhost:8000/logout'" title='LOGOUT' style="font-size: 35px;  font-family: consolas;  width: 32%; position: relative; left: 34%"> LOGOUT </button>
+    </div>
+</body>
+</html>
+

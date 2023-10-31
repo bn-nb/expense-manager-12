@@ -1,0 +1,111 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+<style type="text/css">
+        .container {
+        width: 94%;
+        height:400;
+        border: 5px solid rgb(60,60,115);
+        border-radius: .5em;
+        padding: 10px;
+        display: flex;
+        margin: 1em;
+        background-color: #FF3399}
+
+        td{
+        background-color: white;
+        text-align: center;
+        width: 300px ;
+        height:100px;
+        font-size: 30px;
+        font-family: consolas;
+        }
+
+        th{
+        text-align: center;
+        background-color: cyan;
+        width: 300px ;
+        height:100px;
+        font-size: 30px;
+        font-family: consolas;
+        }
+    </style>
+    <script type="text/javascript">
+    function enable(id){document.getElementById(id).style.display = 'block';}
+    function copyElementContents(el) {
+        var body = document.body, range, sel;
+        if (document.createRange && window.getSelection) {
+            range = document.createRange();
+            sel = window.getSelection();
+            sel.removeAllRanges();
+            try {
+                range.selectNodeContents(el);
+                sel.addRange(range);
+            } catch (e) {
+                range.selectNode(el);
+                sel.addRange(range);
+            }
+            document.execCommand("copy");
+
+        } else if (body.createTextRange) {
+            range = body.createTextRange();
+            range.moveToElementText(el);
+            range.select();
+            range.execCommand("Copy");
+        }
+    }</script>
+    
+</head>
+<body style="font-size: 35px;  font-family: consolas;  background-color: #F5DEB3;">  
+<h1> Budget </h1>
+<p> Copy table contents and paste into A1 cell (MS Excel) !</p>  
+<div align=center>
+  <form method ='post'>
+    {% csrf_token %}
+    <div class='container'>
+    
+<label> Start Date : </label>
+<input id='time1' type="datetime-local" name="time1" style="width: 500px; height: 40px; font-size: 35px; font-family: consolas ;position: absolute; right: 100px;" onchange="enable('time2')"></div><br>
+<div class='container'><label for="time2"> End Date : </label>
+<input id='time2' type="datetime-local" name="time2" style="width: 500px; height: 40px; font-size: 35px; font-family: consolas ;position: absolute; right: 100px; display:none;" onchange="enable('submit')"></div><br>
+<input id='submit' type="submit" value="Post" style="width: 500px; height: 45px; font-size: 35px; font-family: consolas ;margin : auto ; display: none;">
+</form>
+    {% if html %}
+    <div class='container' style="background-color: #FF3399">
+    <button onclick="copyElementContents( document.getElementById('budget') );" title='COPY TABLE' style="font-size: 35px;  font-family: consolas;  width: 32%; position: relative; left: 34%"> COPY TABLE </button>
+    </div>
+  <table border="2" class="dataframe" id='budget'>
+  <thead>
+    <tr >
+      <th> Exp.No </th>
+      <th> Date & Time </th>
+      <th> Subtype </th>
+      <th> Amount </th>
+      <th> Expense </th>
+      <th> Budget </th>
+      <th> NET </th>
+      <th> Status </th></tr>
+  </thead>
+  <tbody>
+    {% autoescape off %}
+    {{ html }}
+    {% endautoescape %}
+  </tbody>
+</table>
+
+{% endif %}
+</div>
+<p>  </p>
+<div class='container' style="background-color: #FF3399">
+      <button onclick="document.location ='http://localhost:8000/editbd'" title='EDIT BUDGETS' style="font-size: 35px;  font-family: consolas;  width: 32%; position: relative; left: 34%"> EDIT BUDGETS </button>
+</div>
+<div class='container' style="background-color: #FF3399">
+      <button onclick="document.location ='http://localhost:8000'" title='HOME_PAGE' style="font-size: 35px;  font-family: consolas;  width: 32%; position: relative; left: 34%"> HOME </button>
+</div>
+<div class='container' style="background-color: #FF3399">
+      <button onclick="document.location ='http://localhost:8000/logout'" title='LOGOUT' style="font-size: 35px;  font-family: consolas;  width: 32%; position: relative; left: 34%"> LOGOUT </button>
+</div>
+</body>
+</html>

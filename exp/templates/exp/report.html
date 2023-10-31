@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate Reports</title>
+
+    <style type="text/css">
+        .container {
+        width: 94%;
+        height:400;
+        border: 5px solid rgb(60,60,115);
+        border-radius: .5em;
+        padding: 10px;
+        display: flex;
+        margin: 1em;
+        background-color: #FF3399}
+    </style>
+</head>
+<script type="text/javascript">
+    function enablet2(){document.getElementById("time2").style.display = 'block';}
+    function enablep(){document.getElementById("submit").style.display = 'block';}
+</script>
+<body style="font-size: 35px; font-family: consolas; background-color: #F5DEB3">
+    <h1> Generate Expense Reports CSV</h1>
+    <p> Download CSV file for development purpose. </p>
+    <p> For tabular format with budget, visit budget site ! </p>
+    <form method='post' >
+{% csrf_token %}
+<div class='container'>
+<label> Start Date : </label>
+<input id='time1' type="datetime-local" name="time1" style="width: 500px; height: 40px; font-size: 35px; font-family: consolas ;position: absolute; right: 100px;" onchange="enablet2()"></div><br>
+<div class='container'><label for="time2"> End Date : </label>
+<input id='time2' type="datetime-local" name="time2" style="width: 500px; height: 40px; font-size: 35px; font-family: consolas ;position: absolute; right: 100px; display:none;" onchange="enablep()"></div><br>
+<div align=center>  <input id='submit' type="submit" value="Post" style="width: 500px; height: 45px; font-size: 35px; font-family: consolas ;margin : auto ; display:none;"></div>
+</form><br>
+{% if output %}
+<a href="{{ BASE_DIR }}/media/report.csv" download>
+<div align=center><button style="width: 500px; height: 45px; font-size: 35px; font-family: consolas ;margin : auto ;" onclick="document.location ='http://localhost:8000/'"> Download</button> </a></div>
+<div align=center>  <input type="text" value="{{ output }}" style="font-size: 35px; font-family: consolas ; width: 95% ;height: 100%" ></div>
+{% endif %}
+<div class='container' style="background-color: #FF3399">
+      <button onclick="document.location ='http://localhost:8000/budget'" title='BUDGET' style="font-size: 35px;  font-family: consolas;  width: 32%; position: relative; left: 34%"> BUDGET </button>
+</div>
+<div class='container' style="background-color: #FF3399">
+      <button onclick="document.location ='http://localhost:8000/logout'" title='LOGOUT' style="font-size: 35px;  font-family: consolas;  width: 32%; position: relative; left: 34%"> LOGOUT </button>
+</div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Budgets</title>
+    <style type="text/css">
+        .container {
+        width: 94%;
+        height:400;
+        border: 5px solid rgb(60,60,115);
+        border-radius: .5em;
+        padding: 10px;
+        display: flex;
+        margin: 1em;
+        background-color: #FF3399}
+    </style>
+    <script type="text/javascript">
+    function enable(id){document.getElementById(id).style.display = 'block';}</script>
+</head>
+
+<body style="font-size: 35px;  font-family: consolas;  background-color: #F5DEB3;"> 
+    <h1> Edit Budgets </h1>
+    <p> Please input all values before submission ! <br>  Change a value and click away !</p>
+    <form method ="post"> 
+    {% csrf_token %}    
+<div class = 'container'> 
+<label> Budget for Automobile : </label>   
+<input id='1' type="number" name="1" style="width: 500px; height: 40px; font-size: 35px; font-family: consolas ;position: absolute; right: 100px; " onchange="enable('2')">
+</div><br>
+<div class = 'container'> 
+<label> Budget for Entertainment : </label>   
+<input id='2' type="number" name="2" style="width: 500px; height: 40px; font-size: 35px; font-family: consolas ;position: absolute; right: 100px; display: none;" onchange="enable('3')">
+</div><br>
+<div class = 'container'> 
+<label> Budget for Family : </label>   
+<input id='3' type="number" name="3" style="width: 500px; height: 40px; font-size: 35px; font-family: consolas ;position: absolute; right: 100px; display: none;" onchange="enable('4')">
+</div><br>
+<div class = 'container'> 
+<label> Budget for Food : </label>   
+<input id='4' type="number" name="4" style="width: 500px; height: 40px; font-size: 35px; font-family: consolas ;position: absolute; right: 100px; display: none;" onchange="enable('5')">
+</div><br>
+<div class = 'container'> 
+<label> Budget for Insurance : </label>   
+<input id='5' type="number" name="5" style="width: 500px; height: 40px; font-size: 35px; font-family: consolas ;position: absolute; right: 100px; display: none;" onchange="enable('6')">
+</div><br>
+<div class = 'container'> 
+<label> Budget for Tax : </label>   
+<input id='6' type="number" name="6" style="width: 500px; height: 40px; font-size: 35px; font-family: consolas ;position: absolute; right: 100px; display: none;" onchange="enable('7')">
+</div><br>
+<div class = 'container'> 
+<label> Budget for Travel : </label>   
+<input id='7' type="number" name="7" style="width: 500px; height: 40px; font-size: 35px; font-family: consolas ;position: absolute; right: 100px; display: none;" onchange="enable('8')">
+</div><br>
+<div class = 'container'> 
+<label> Budget for Utilities : </label>   
+<input id='8' type="number" name="8" style="width: 500px; height: 40px; font-size: 35px; font-family: consolas ;position: absolute; right: 100px; display: none;" onchange="enable('submit')">
+</div><br>
+<input id='submit' type="submit" value="Post" style="width: 500px; height: 45px; font-size: 35px; font-family: consolas ;margin : auto ; display: none;">
+</form>
+<div class='container' style="background-color: #FF3399">
+      <button onclick="document.location ='http://localhost:8000/logout'" title='LOGOUT' style="font-size: 35px;  font-family: consolas;  width: 32%; position: relative; left: 34%"> LOGOUT </button>
+</div>
+</body>
+</html>
