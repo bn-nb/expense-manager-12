@@ -7,3 +7,11 @@ services:
       - ./media:/app/media
     ports:
       - "8000:8000"
+
+
+# To create from scratch
+# docker-compose up --build
+
+# To stop all and destroy
+# docker-compose down -v
+
