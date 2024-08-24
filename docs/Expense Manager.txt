@@ -1,0 +1,56 @@
+7.Expense Manager
+
+Expense Manager is an online application where users can login to maintain their expenses and incomes.
+
+The user should be able to -
+    •	Track expenses and incomes by week, month and year as well as by categories
+    •	Have Multiple accounts
+    •	Schedule the payments.
+    •	Upload a picture of receipt
+    •	Budget
+    •	Search and generate reports(preferably in a .txt or .xls file format)
+
+Some of the sample categories to be included
+    •	Automobile
+        o	Fuel
+        o	Maintenance
+    •	Entertainment
+        o	Movies
+        o	Party
+        o	Concert
+        o	Sports
+    •	Family
+        o	Child Care
+        o	Toys
+        o	Others
+    •	Food
+        o	Breakfast
+        o	Lunch
+        o	Dinner
+        o	Snacks
+        o	Groceries
+    •	Insurance
+        o	Auto
+        o	Health
+        o	Life
+    •	Tax
+        o	Property Tax
+        o	Vehicle Tax
+        o	Other
+    •	Travel
+        o	Airplane
+        o	Bus
+        o	Train
+        o	Food
+        o	Hotel
+        o	Taxi
+        o	Other Transportation
+        o	Misc
+    •	Utilities
+        o	Water
+        o	Cable TV
+        o	Electrical
+        o	Gas
+        o	Internet
+        o	Telephone
+

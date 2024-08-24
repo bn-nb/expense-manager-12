@@ -1,7 +1,0 @@
-validate schedule date
-overdue schedule confirmation
-trigger open download
-
-values in graph
-image name
-delete image

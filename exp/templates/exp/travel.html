@@ -283,10 +283,10 @@
     </div> 
     <br>
     <div class='container' style="background-color: #FF3399">
-      <button onclick="document.location ='http://localhost:8000/'" title='Home Page' style="font-size: 35px;  font-family: consolas;  width: 32%; position: relative; left: 34%"> Back to Home Page </button>
+      <button onclick="document.location ='{% url 'exp-home' %}'" title='Home Page' style="font-size: 35px;  font-family: consolas;  width: 32%; position: relative; left: 34%"> Back to Home Page </button>
     </div> 
   <div class='container' style="background-color: #FF3399">
-      <button onclick="document.location ='http://localhost:8000/logout'" title='LOGOUT' style="font-size: 35px;  font-family: consolas;  width: 32%; position: relative; left: 34%"> LOGOUT </button>
+      <button onclick="document.location ='{% url 'logout' %}'" title='LOGOUT' style="font-size: 35px;  font-family: consolas;  width: 32%; position: relative; left: 34%"> LOGOUT </button>
     </div>  
   </body>
 </html>
